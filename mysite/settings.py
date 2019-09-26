@@ -83,11 +83,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
-<<<<<<< HEAD:mysite/settings.py
         'NAME': 'Python',
-=======
         'NAME': 'Test',
->>>>>>> 9363af4f1cd099bac33b4d555369a1f4ae0b248b:poc_python_api_crud/settings.py
         'USER': 'sa',
         'PASSWORD': '12345',
         'HOST': 'NAVEEN\\MSSQLSERVER_2016',
