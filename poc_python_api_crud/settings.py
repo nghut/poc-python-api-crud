@@ -75,10 +75,22 @@ WSGI_APPLICATION = 'poc_python_api_crud.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'Test',
+        'USER': 'sa',
+        'PASSWORD': '12345',
+        'HOST': 'NAVEEN\\MSSQLSERVER_2016',
+        'PORT': '',
+        'OPTIONS': { 'host_is_server': True, 'driver': 'ODBC Driver 13 for SQL Server', },
     }
 }
 
