@@ -43,9 +43,9 @@ def create(request):
 
         my_query = query_exec("insert into employee(EmployeeName,Age,DateOfBirth,EmailID,MobileNumber,Address,City,State,IsActive,CreatedDateTime,CreatedBy) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (jsonObj['EmployeeName'],jsonObj['Age'],jsonObj['DateOfBirth'],jsonObj['EmailID'],jsonObj['MobileNumber'],jsonObj['Address'],jsonObj['City'],jsonObj['State'], 1, now.strftime('%Y-%m-%d %H:%M:%S'), 'Test'))
         
-        return HttpResponse("[{'Code':1,'Message':'Saved successfully'}]")
+        return HttpResponse(json.dumps({'Code':1,'Message':'Saved successfully'}))
     else:
-        return HttpResponse("[{'Code':0,'Message':'Invalid request'}]")
+        return HttpResponse(json.dumps({'Code':0,'Message':'Invalid request'}))
 
 
     # conn = pyodbc.connect(  'Driver={SQL Server};'
@@ -75,9 +75,9 @@ def update(request):
 
         my_query = query_exec("update employee set EmployeeName = ?,Age = ? ,DateOfBirth = ?,EmailID = ?,MobileNumber = ?,Address = ?,City = ?,State = ?, ModifiedDateTime =?, ModifiedBy=? where EmployeeID = ?", (jsonObj['EmployeeName'],jsonObj['Age'],jsonObj['DateOfBirth'],jsonObj['EmailID'],jsonObj['MobileNumber'],jsonObj['Address'],jsonObj['City'],jsonObj['State'], now.strftime('%Y-%m-%d %H:%M:%S'), 'Test', jsonObj['EmployeeID']))
         
-        return HttpResponse("[{'Code':1,'Message':'Updated successfully'}]")
+        return HttpResponse(json.dumps({'Code':1,'Message':'Updated successfully'}))
     else:
-        return HttpResponse("[{'Code':0,'Message':'Invalid request'}]")
+        return HttpResponse(json.dumps({'Code':0,'Message':'Invalid request'}))
 
 @csrf_exempt
 def delete(request):
@@ -87,6 +87,6 @@ def delete(request):
 
         my_query = query_exec("delete from employee where EmployeeID = ?", (jsonObj['EmployeeID']))
         
-        return HttpResponse("[{'Code':1,'Message':'Deleted successfully'}]")
+        return HttpResponse(json.dumps({'Code':1,'Message':'Deleted successfully'}))
     else:
-        return HttpResponse("[{'Code':0,'Message':'Invalid request'}]")
+        return HttpResponse(json.dumps({'Code':0,'Message':'Invalid request'}))

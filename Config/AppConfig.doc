@@ -1,0 +1,25 @@
+Steps 
+
+pip install djangorestframework 
+
+django-admin startproject api 
+
+python manage.py startapp webapp 
+
+Include 'rest_framework', 'webapp' in Installed_apps - settings.py 
+
+pip install pyodbc 
+
+pip install django-pyodbc-azure 
+
+Define views for database connections and rest methods in views.py 
+
+Define get url for model in urls.py 
+
+python manage.py runserver 
+
+Csrf fixed 
+
+pip install django-cors-headers 
+
+Include CORS_ORIGIN_ALLOW_ALL = True in settings.py 
